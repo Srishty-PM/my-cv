@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srishty Pahujani - Lead Product Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --accent: #dc2626;
+            --secondary: #1e40af;
+            --success: #059669;
+            --purple: #7c3aed;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom, var(--bg) 0%, #f5f7fb 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a1f3a 100%);
+            color: white;
+            padding: 100px 60px;
+            position: relative;
+            overflow: hidden;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(30, 64, 175, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -1.5px;
+            animation: fadeInUp 0.8s ease-out 0.1s backwards;
+            line-height: 1.1;
+        }
+
+        .title {
+            font-size: 26px;
+            color: #e0e7ff;
+            margin-bottom: 28px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .contact {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            font-size: 15px;
+            color: #cbd5e1;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
+        }
+
+        .contact a {
+            color: #fbbf24;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact a:hover {
+            color: white;
+            gap: 10px;
+        }
+
+        /* METRICS SHOWCASE */
+        .metrics-section {
+            background: white;
+            padding: 50px 60px;
+            max-width: 1200px;
+            margin: -50px auto 0;
+            position: relative;
+            z-index: 3;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .metric {
+            padding: 32px 24px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: scaleIn 0.6s ease-out backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            transform: scaleX(0);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .metric:hover::before {
+            transform: scaleX(1);
+        }
+
+        .metric:nth-child(1) { 
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.08), rgba(220, 38, 38, 0.03));
+            border: 2px solid rgba(220, 38, 38, 0.2);
+            animation-delay: 0.1s;
+        }
+        .metric:nth-child(1)::before { background: var(--accent); }
+
+        .metric:nth-child(2) { 
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(30, 64, 175, 0.03));
+            border: 2px solid rgba(30, 64, 175, 0.2);
+            animation-delay: 0.15s;
+        }
+        .metric:nth-child(2)::before { background: var(--secondary); }
+
+        .metric:nth-child(3) { 
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.08), rgba(5, 150, 105, 0.03));
+            border: 2px solid rgba(5, 150, 105, 0.2);
+            animation-delay: 0.2s;
+        }
+        .metric:nth-child(3)::before { background: var(--success); }
+
+        .metric:nth-child(4) { 
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(124, 58, 237, 0.03));
+            border: 2px solid rgba(124, 58, 237, 0.2);
+            animation-delay: 0.25s;
+        }
+        .metric:nth-child(4)::before { background: var(--purple); }
+
+        .metric:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+        }
+
+        .metric-value {
+            font-family: 'Sora', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .metric:nth-child(1) .metric-value { color: var(--accent); }
+        .metric:nth-child(2) .metric-value { color: var(--secondary); }
+        .metric:nth-child(3) .metric-value { color: var(--success); }
+        .metric:nth-child(4) .metric-value { color: var(--purple); }
+
+        .metric-label {
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 60px;
+        }
+
+        section {
+            margin-bottom: 100px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 48px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        h2 span {
+            font-size: 28px;
+        }
+
+        /* STATEMENT */
+        .statement {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.04), rgba(220, 38, 38, 0.04));
+            border: 2px solid var(--border);
+            padding: 48px;
+            border-radius: 16px;
+            border-left: 6px solid var(--accent);
+            font-size: 17px;
+            line-height: 1.9;
+            color: var(--text);
+        }
+
+        .statement strong {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* SPEAKING */
+        .speaking-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 28px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-left: 5px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .speaking-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.05), transparent);
+            border-radius: 50%;
+        }
+
+        .speaking-card:hover {
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+            transform: translateX(10px);
+        }
+
+        .speaking-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .speaking-meta {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .speaking-desc {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .speaking-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .speaking-link:hover {
+            gap: 12px;
+            color: var(--accent);
+        }
+
+        /* EXPERIENCE */
+        .exp-header {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            align-items: flex-start;
+        }
+
+        .exp-logo {
+            width: 80px;
+            height: 80px;
+            background: var(--light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 2px solid var(--border);
+        }
+
+        .exp-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 12px;
+        }
+
+        .exp-info {
+            flex: 1;
+        }
+
+        .experience-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 28px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(180deg, var(--accent), var(--secondary));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .experience-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .experience-card:hover {
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+        }
+
+        .exp-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .exp-period {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.08), rgba(220, 38, 38, 0.04));
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .exp-company {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .exp-description {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 18px;
+        }
+
+        .exp-impact {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.06), rgba(220, 38, 38, 0.03));
+            padding: 16px 18px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            font-size: 14px;
+            color: var(--text);
+            font-weight: 500;
+            line-height: 1.7;
+        }
+
+        .exp-impact strong {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* COMPETENCIES */
+        .competencies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .competency {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            border: 2px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .competency::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary), var(--success));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .competency:hover::before {
+            transform: scaleX(1);
+        }
+
+        .competency:hover {
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+            transform: translateY(-8px);
+        }
+
+        .comp-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .comp-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .comp-skills span {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.08), rgba(30, 64, 175, 0.04));
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--secondary);
+            border: 1px solid rgba(30, 64, 175, 0.15);
+            transition: all 0.3s;
+        }
+
+        .comp-skills span:hover {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.15), rgba(30, 64, 175, 0.08));
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* EDUCATION */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .education-item {
+            padding: 32px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(124, 58, 237, 0.05));
+            border: 2px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(30, 64, 175, 0.1), transparent);
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .education-item:hover::before {
+            right: -50px;
+        }
+
+        .education-item:hover {
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+            transform: translateY(-6px);
+        }
+
+        .edu-degree {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .edu-school {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px 60px;
+            color: var(--text-light);
+            font-size: 13px;
+            border-top: 2px solid var(--border);
+            margin-top: 80px;
+        }
+
+        /* ANIMATIONS */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.93);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        /* PRINT */
+        @media print {
+            body { background: white; }
+            header { page-break-after: avoid; padding: 60px 40px; }
+            .metrics-section { margin-top: 0; page-break-after: avoid; }
+            .container { padding: 40px; }
+            section { page-break-inside: avoid; margin-bottom: 50px; }
+            .experience-card, .speaking-card { page-break-inside: avoid; }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header { padding: 60px 30px; }
+            h1 { font-size: 42px; }
+            .title { font-size: 20px; }
+            .container, .metrics-section { padding: 40px 30px; }
+            .metrics { grid-template-columns: repeat(2, 1fr); }
+            h2 { font-size: 26px; margin-bottom: 32px; }
+            .exp-header { flex-direction: column; }
+            .exp-title { flex-direction: column; }
+            .experience-card, .speaking-card { padding: 28px; }
+        }
+
+        @media (max-width: 480px) {
+            header { padding: 40px 20px; }
+            h1 { font-size: 32px; }
+            .title { font-size: 18px; }
+            .container, .metrics-section { padding: 20px; }
+            .metrics { grid-template-columns: 1fr; gap: 16px; }
+            h2 { font-size: 22px; margin-bottom: 24px; }
+            .experience-card, .speaking-card { padding: 20px; }
+            .exp-header { gap: 16px; }
+            .exp-logo { width: 60px; height: 60px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <h1>Srishty Pahujani</h1>
+            <p class="title">Lead Product Manager | Growth & Data Platforms</p>
+            <div class="contact">
+                <a href="mailto:pahujani.srishty@gmail.com">📧 pahujani.srishty@gmail.com</a>
+                <a href="tel:+442075529801">📱 +44 7552 978 801</a>
+                <a href="https://linkedin.com/in/srishtypahujani" target="_blank">🔗 LinkedIn</a>
+                <span>📍 London, UK</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- METRICS -->
+    <div class="metrics-section">
+        <div class="metrics">
+            <div class="metric">
+                <div class="metric-value">£1.2M</div>
+                <div class="metric-label">Cost Savings</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">+40%</div>
+                <div class="metric-label">Growth</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">105%</div>
+                <div class="metric-label">Revenue Target</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">10+</div>
+                <div class="metric-label">Years Experience</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="container">
+        <!-- STATEMENT -->
+        <section>
+            <div class="statement">
+                <strong>Proven operator scaling enterprise products across EMEA & APAC.</strong> Built data platforms driving £1.2M cost optimization and 40% organic growth. Shipped products generating £10M+ revenue impact. Led cross-functional teams delivering 105%+ targets. Recognized speaker on digital transformation and product-first strategy. Excel in high-ambiguity environments where strategic vision meets flawless execution.
+            </div>
+        </section>
+
+        <!-- THOUGHT LEADERSHIP -->
+        <section>
+            <h2><span>💡</span> Thought Leadership</h2>
+            
+            <div class="speaking-card">
+                <div class="speaking-title">Digital Transformation: Product-First Mindset & Tech Overhaul</div>
+                <div class="speaking-meta">Product School, 2024</div>
+                <div class="speaking-desc">Executive talk on leading organizational transformation through product-first strategy. Shared frameworks for managing complex cross-functional overhauls while maintaining customer focus and delivery velocity.</div>
+                <a href="https://www.youtube.com/watch?v=V4vI-aVZbW8" target="_blank" class="speaking-link">Watch on YouTube →</a>
+            </div>
+
+            <div class="speaking-card">
+                <div class="speaking-title">Product School Community Mentor</div>
+                <div class="speaking-meta">2023 – Present</div>
+                <div class="speaking-desc">Active contributor to product management community. Mentor aspiring and practicing PMs through case studies, frameworks, and insights on scaling products, cross-functional leadership, and data-driven decision making.</div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+            <h2><span>📈</span> Professional Experience</h2>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-logo">
+                        <img src="https://www.tesco.com/favicon.ico" alt="Tesco">
+                    </div>
+                    <div class="exp-info">
+                        <div class="exp-title">
+                            <span>Lead Product Manager, Data Products Platform</span>
+                            <span class="exp-period">Dec 2024 – Present</span>
+                        </div>
+                        <div class="exp-company">Tesco Technologies | London, UK</div>
+                    </div>
+                </div>
+                <div class="exp-description">
+                    Built Tesco's first enterprise Cyber Data Intelligence Platform integrating 8+ internal sources. Architected dual-use platform for cybersecurity UEBA and customer journey analytics. Led 2-squad team across UK/India locations with real-time threat detection capabilities.
+                </div>
+                <div class="exp-impact">
+                    <strong>Impact:</strong> Real-time risk monitoring • +40% delivery velocity • LLM-powered threat detection • 8+ data sources unified • Cross-location team coordination
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-logo">
+                        <img src="https://www.amazon.com/favicon.ico" alt="Amazon">
+                    </div>
+                    <div class="exp-info">
+                        <div class="exp-title">
+                            <span>Senior Product Manager, Freight Operations</span>
+                            <span class="exp-period">Jan 2022 – Nov 2024</span>
+                        </div>
+                        <div class="exp-company">Amazon | London, UK</div>
+                    </div>
+                </div>
+                <div class="exp-description">
+                    Drove operational efficiency and commercial growth across Amazon Freight Partner network. Executed insurance transformation spanning 7 EU markets. Shipped claims analytics dashboard for 1,300+ vehicles. Delivered AAIP product integrating compliance, claims, finance, and legal. Managed Transport Manager Certifications across UK and Germany.
+                </div>
+                <div class="exp-impact">
+                    <strong>Impact:</strong> £1.2M cost savings • 105% revenue target achieved • +5% conversion growth • +15% retention • +27% dashboard adoption • 7-market expansion
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-logo">
+                        <img src="https://www.elsevier.com/favicon.ico" alt="Elsevier">
+                    </div>
+                    <div class="exp-info">
+                        <div class="exp-title">
+                            <span>Product Manager, Journal Platforms</span>
+                            <span class="exp-period">Sep 2019 – Dec 2021</span>
+                        </div>
+                        <div class="exp-company">Elsevier | Amsterdam, Netherlands</div>
+                    </div>
+                </div>
+                <div class="exp-description">
+                    Redesigned 3,500+ journal homepages with mobile-first UX. Integrated 20+ data sources into personalized content platform. Led 15+ A/B tests improving academic signup conversion by 18%. Managed 15-person cross-functional squad shipping 60+ features across 8 quarters.
+                </div>
+                <div class="exp-impact">
+                    <strong>Impact:</strong> -50% page load time • +40% organic traffic • +18% conversion • +10% engagement • +23pts NPS • 3,500+ pages modernized
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-logo">
+                        <img src="https://www.paytm.com/favicon.ico" alt="Paytm">
+                    </div>
+                    <div class="exp-info">
+                        <div class="exp-title">
+                            <span>Growth Manager, E-Commerce</span>
+                            <span class="exp-period">Mar 2016 – Sep 2018</span>
+                        </div>
+                        <div class="exp-company">Paytm | New Delhi, India</div>
+                    </div>
+                </div>
+                <div class="exp-description">
+                    Built scalable growth funnels through CRM segmentation and retention campaigns. Delivered SEO and GTM strategies for high-value categories. Optimized pricing and checkout experience. Drove category expansion and marketplace growth.
+                </div>
+                <div class="exp-impact">
+                    <strong>Impact:</strong> +30% GMV • +20% retention • £10M+ quarterly revenue • 35% organic traffic growth • 20% Day-30 retention improvement
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-info">
+                        <div class="exp-title">
+                            <span>Product & Operations Lead</span>
+                            <span class="exp-period">2012 – 2015</span>
+                        </div>
+                        <div class="exp-company">Early-Stage E-Commerce (ShopClues, Snapdeal, Yebhi) | India</div>
+                    </div>
+                </div>
+                <div class="exp-description">
+                    Scaled product catalog from 50K to 500K+ SKUs through data-driven merchandising. Onboarded 6+ brand partners building B2B program generating 20% of marketplace GMV. Optimized inventory using demand forecasting and ZIP-based allocation strategies.
+                </div>
+                <div class="exp-impact">
+                    <strong>Impact:</strong> 500K+ SKU scaling • 6+ brand partnerships • 20% of GMV from B2B • -30% excess inventory • 10x catalog growth
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPETENCIES -->
+        <section>
+            <h2><span>🛠️</span> Strategic Competencies</h2>
+            <div class="competencies">
+                <div class="competency">
+                    <div class="comp-title">Strategy & Scale</div>
+                    <div class="comp-skills">
+                        <span>Product Strategy</span>
+                        <span>Enterprise GTM</span>
+                        <span>Data Architecture</span>
+                        <span>Digital Transformation</span>
+                        <span>Roadmap Leadership</span>
+                        <span>International Expansion</span>
+                        <span>Market Analysis</span>
+                        <span>Organizational Alignment</span>
+                    </div>
+                </div>
+
+                <div class="competency">
+                    <div class="comp-title">Execution & Impact</div>
+                    <div class="comp-skills">
+                        <span>A/B Testing</span>
+                        <span>Funnel Optimization</span>
+                        <span>Cross-Functional Leadership</span>
+                        <span>Stakeholder Management</span>
+                        <span>Agile at Scale</span>
+                        <span>Data-Driven Culture</span>
+                        <span>Incident Management</span>
+                        <span>Team Building</span>
+                    </div>
+                </div>
+
+                <div class="competency">
+                    <div class="comp-title">Technical Depth</div>
+                    <div class="comp-skills">
+                        <span>SQL & APIs</span>
+                        <span>Data Platforms</span>
+                        <span>UEBA & ML</span>
+                        <span>Databricks</span>
+                        <span>Microservices</span>
+                        <span>Azure Cloud</span>
+                        <span>Data Governance</span>
+                        <span>Cloud Infrastructure</span>
+                    </div>
+                </div>
+
+                <div class="competency">
+                    <div class="comp-title">Leadership & Influence</div>
+                    <div class="comp-skills">
+                        <span>Public Speaking</span>
+                        <span>Mentorship</span>
+                        <span>Community Building</span>
+                        <span>Thought Leadership</span>
+                        <span>Case Study Development</span>
+                        <span>Executive Communication</span>
+                        <span>Vision Setting</span>
+                        <span>Influence Without Authority</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section>
+            <h2><span>🎓</span> Education & Certifications</h2>
+
+            <div class="education-grid">
+                <div class="education-item">
+                    <div class="edu-degree">MBA</div>
+                    <div class="edu-school">TIAS School for Business & Society • Netherlands • 2018–2019</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="edu-degree">International Business</div>
+                    <div class="edu-school">SDA Bocconi • Milan, Italy • 2019</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="edu-degree">B.Sc. (Hons) Biological Sciences</div>
+                    <div class="edu-school">University of Delhi • India • 2009–2012</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="edu-degree">Professional Certifications</div>
+                    <div class="edu-school">PSPO I • Forrester CX • ML for PMs (Duke) • SEO Foundations • Product School Mentor</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Last updated: December 2024 • Available for FAANG & scale-up PM roles • Open to growth leadership opportunities</p>
+    </footer>
+
+</body>
+</html>
